@@ -101,10 +101,8 @@ PRODUCT_COPY_FILES := \
 	frameworks/native/data/etc/android.software.autofill.xml:system/etc/permissions/android.software.autofill.xml \
 	device/generic/goldfish/audio_policy.conf:system/etc/audio_policy.conf
 
-ifneq ($(filter marlin sailfish kenzo,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES := \
         frameworks/av/media/libeffects/data/audio_effects.conf:system/etc/audio_effects.conf
-endif
 
 include $(SRC_TARGET_DIR)/product/emulator.mk
 
