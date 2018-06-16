@@ -415,6 +415,10 @@ alldefconfig: $(KERNEL_OUT_STAMP)
 	env KCONFIG_NOTIMESTAMP=true \
 		 $(MAKE) -C $(KERNEL_SRC) O=$(KERNEL_OUT) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_CLANG_TRIPLE) $(KERNEL_CC) alldefconfig
 
+kernelversion:
+	$(hide) mkdir -p $(KERNEL_OUT)
+	$(MAKE) --quiet -C $(KERNEL_SRC) O=$(KERNEL_OUT) kernelversion | cut -f1,2 -d'.' > $(KERNEL_OUT)/.kernelversion
+
 endif # FULL_KERNEL_BUILD
 
 ## Install it
