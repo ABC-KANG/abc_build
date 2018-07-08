@@ -1210,7 +1210,7 @@ endef
 define build-recoveryimage-target
   @echo "Generating Changelog"
   $(hide) ./vendor/nexus/tools/changelog.sh
-  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/ABC-Changelog-$(TARGET_PRODUCT)-$(ABC_VERSION).txt
+  $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/Changelog-$(TARGET_PRODUCT)-$(ABC_VERSION).txt
   @echo ----- Making recovery image ------
   $(hide) mkdir -p $(TARGET_RECOVERY_OUT)
   $(hide) mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/etc $(TARGET_RECOVERY_ROOT_OUT)/sdcard $(TARGET_RECOVERY_ROOT_OUT)/tmp
@@ -2685,7 +2685,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) \
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/ABC_ROM_$(TARGET_PRODUCT)-$(ABC_VERSION).zip
+CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/ABC-$(TARGET_PRODUCT)-$(ABC_VERSION).zip
 
 .PHONY: otapackage bacon
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
